@@ -2,7 +2,7 @@ using CleanArch.Doamin.Common;
 
 namespace CleanArch.Doamin;
 
-public class LeaveAllocation: BaseEntity
+public class LeaveAllocation : BaseEntity
 {
     public int NummberOfDays { get; set; }
 

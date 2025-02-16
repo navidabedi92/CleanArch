@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CleanArch.Doamin;
 
-public class LeaveRequest: BaseEntity
+public class LeaveRequest : BaseEntity
 {
-    public DateTime StartDate { get;set; }
+    public DateTime StartDate { get; set; }
 
-    public DateTime EndDate { get;set; }
+    public DateTime EndDate { get; set; }
 
     public LeaveType? LeaveType { get; set; }
 
