@@ -1,7 +1,7 @@
 using AutoMapper;
 using CleanArch.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
 using CleanArch.Application.Features.LeaveType.Queries.GetLeaveTypeDetails;
-using CleanArch.Doamin;
+using CleanArch.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

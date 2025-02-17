@@ -1,6 +1,6 @@
-using CleanArch.Doamin.Common;
+using CleanArch.Domain.Common;
 
-namespace CleanArch.Doamin;
+namespace CleanArch.Domain;
 
 public class LeaveAllocation : BaseEntity
 {

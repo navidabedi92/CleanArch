@@ -12,11 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArch.Doamin\CleanArch.Doamin.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\LeaveType\Commands\" />
+    <ProjectReference Include="..\CleanArch.Domain\CleanArch.Domain.csproj" />
   </ItemGroup>
 
 </Project>

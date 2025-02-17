@@ -1,5 +1,5 @@
 
-namespace CleanArch.Doamin.Common;
+namespace CleanArch.Domain.Common;
 
 public abstract class BaseEntity
 {

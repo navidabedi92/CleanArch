@@ -1,5 +1,5 @@
 
-using CleanArch.Doamin;
+using CleanArch.Domain;
 
 namespace CleanArch.Application.Contracts.Persistence;
 

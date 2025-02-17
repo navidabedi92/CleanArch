@@ -1,7 +1,7 @@
-using CleanArch.Doamin.Common;
+using CleanArch.Domain.Common;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CleanArch.Doamin;
+namespace CleanArch.Domain;
 
 public class LeaveRequest : BaseEntity
 {
