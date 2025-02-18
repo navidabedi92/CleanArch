@@ -1,6 +1,3 @@
-
-
-using AutoMapper;
 using CleanArch.Application.Contracts.Persistence;
 using MediatR;
 
@@ -8,23 +5,23 @@ namespace CleanArch.Application.Features.LeaveType.Commands.DeleteLeaveType;
 
 public class DeleteCommandHandler : IRequestHandler<DeleteLeaveTypeCommand, Unit>
 {
-    public readonly IMapper _mapper;
     public readonly ILeaveTypeRepository _leaveTypeRepository;
 
-    public DeleteCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
+    public DeleteCommandHandler(ILeaveTypeRepository leaveTypeRepository)
     {
-        this._mapper = mapper;
-        this._leaveTypeRepository = leaveTypeRepository;
+        _leaveTypeRepository = leaveTypeRepository;
     }
+
     public async Task<Unit> Handle(DeleteLeaveTypeCommand request, CancellationToken cancellationToken)
     {
-        // Validate incoming data
+        // retrieve to domain entity object
+        var leaveTypeToDelete = await _leaveTypeRepository.GetByIdAsync(request.Id);
 
-        // convert to domain entity object
-        var leaveTypeToDelete = _mapper.Map<Domain.LeaveType>(request);
-        // add to db
+        //verify that record exist
+
+        // remove from db
         await _leaveTypeRepository.DeleteAsync(leaveTypeToDelete);
-        // return record id
+   
         return Unit.Value;
     }
 }
