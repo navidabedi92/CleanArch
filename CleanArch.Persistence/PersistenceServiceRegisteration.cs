@@ -1,4 +1,5 @@
 using CleanArch.Application.Contracts.Persistence;
+using CleanArch.Domain;
 using CleanArch.Persistence.DatabaseContext;
 using CleanArch.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,10 @@ public static class PersistenceServiceRegisteration
         });
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+        services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
+        services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
+        services.AddScoped<ILeaveRequestRepository, LeaveRequestRepository>();
 
         return services;
     }
