@@ -1,4 +1,6 @@
+using CleanArch.Application.Contracts.Persistence;
 using CleanArch.Persistence.DatabaseContext;
+using CleanArch.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +18,8 @@ public static class PersistenceServiceRegisteration
         {
             options.UseSqlServer(configuration.GetConnectionString("CADatabaseConnectionString"));
         });
+
+        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
         return services;
     }
