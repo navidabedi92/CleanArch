@@ -1,5 +1,6 @@
 using AutoMapper;
 using CleanArch.Application.Contracts.Persistence;
+using CleanArch.Application.Exceptions;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,11 @@ namespace CleanArch.Application.Features.LeaveType.Commands.CreateLeaveType
         public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
             // Validate incoming data
+            var validator = new CreateLeaveTypeCommandValidator(_leaveTypeRepository);
+            var validationResult =await validator.ValidateAsync(request);
 
+            if (validationResult.Errors.Any())
+                throw new BadRequestException("Invalid LeaveType", validationResult);
             // convert to domain entity object
             var leaveTypeToCreate = _mapper.Map<Domain.LeaveType>(request);
             // add to db
