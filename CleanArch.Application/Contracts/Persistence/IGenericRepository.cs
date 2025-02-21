@@ -1,6 +1,8 @@
+using CleanArch.Domain.Common;
+
 namespace CleanArch.Application.Contracts.Persistence;
 
-public interface IGenericRepository<T> where T : class
+public interface IGenericRepository<T> where T : BaseEntity
 {
     Task<IReadOnlyList<T>> GetAsync();
     Task<T> GetByIdAsync(int id);
