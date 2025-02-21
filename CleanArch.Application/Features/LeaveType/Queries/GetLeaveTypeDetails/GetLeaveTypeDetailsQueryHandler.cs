@@ -1,6 +1,7 @@
 
 using AutoMapper;
 using CleanArch.Application.Contracts.Persistence;
+using CleanArch.Application.Exceptions;
 using CleanArch.Application.Features.LeaveType.Queries.GetLeaveTypeDetails;
 using MediatR;
 namespace CleanArch.Application.Features.Queries.GetLeaveTypeDetails;
@@ -21,6 +22,11 @@ public class GetLeaveTypeDetailsQueryHandler : IRequestHandler<GetLeaveTypeDetai
     {
         //Query the database
         var leaveType = await this._leaveTypeRepository.GetByIdAsync(request.Id);
+
+        //verify that record exists
+        if (leaveType == null)
+            throw new NotFoundException(nameof(LeaveType), request.Id);
+
         //convert data objects to DTO objects
         var data = this._mapper.Map<LeaveTypeDetailsDTO>(leaveType);
         //return list of DTO object
