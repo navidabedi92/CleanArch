@@ -39,4 +39,4 @@ public class LeaveRequestRepository : GenericRepository<LeaveRequest>, ILeaveReq
 }
 
    
-}
+
