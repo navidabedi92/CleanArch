@@ -22,8 +22,8 @@ namespace CleanArch.Application.Features.LeaveType.Commands.CreateLeaveType
                 .MaximumLength(70).WithMessage("{PropertyName} must be fewer than 70 charachters");
 
             RuleFor(p => p.DefaultDays)
-              .GreaterThan(100).WithMessage("{PropertyName} cannot exceed 100")
-              .LessThan(1).WithMessage("{PropertyName} cannot exceed 1");
+              .LessThan(100).WithMessage("{PropertyName} cannot exceed 100")
+              .GreaterThan(1).WithMessage("{PropertyName} cannot exceed 1");
 
             RuleFor(q => q)
                 .MustAsync(LeaveTypeNameUnique)

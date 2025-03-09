@@ -1,4 +1,6 @@
 using AutoMapper;
+using CleanArch.Application.Features.LeaveType.Commands.CreateLeaveType;
+using CleanArch.Application.Features.LeaveType.Commands.UpdateLeaveType;
 using CleanArch.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
 using CleanArch.Application.Features.LeaveType.Queries.GetLeaveTypeDetails;
 using CleanArch.Domain;
@@ -16,5 +18,8 @@ public class LeaveTypeProfile : Profile
     {
         CreateMap<LeaveTypeDTO, LeaveType>().ReverseMap();
         CreateMap<LeaveType, LeaveTypeDetailsDTO>();
+        CreateMap<CreateLeaveTypeCommand, LeaveType>();
+        CreateMap<UpdateLeaveTypeCommand, LeaveType>();
+
     }
 }
