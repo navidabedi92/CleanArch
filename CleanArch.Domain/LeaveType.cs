@@ -8,3 +8,5 @@ public class LeaveType : BaseEntity
 
     public int DefaultDays { get; set; }
 }
+
+
