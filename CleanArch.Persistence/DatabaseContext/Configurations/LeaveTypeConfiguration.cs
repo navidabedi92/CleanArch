@@ -14,16 +14,6 @@ namespace CleanArch.Persistence.DatabaseContext.Configurations
     {
         public void Configure(EntityTypeBuilder<LeaveType> builder)
         {
-            _ = builder.HasData(
-                new LeaveType
-                {
-                    Id = 1,
-                    Name = "Vacation",
-                    DefaultDays = 10,
-                    DateCreated = DateTime.Now,
-                    DateModified = DateTime.Now
-                }
-            );
 
             _ = builder.Property(q => q.Name)
                 .IsRequired()
