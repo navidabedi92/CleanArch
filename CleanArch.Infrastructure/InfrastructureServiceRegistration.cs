@@ -1,3 +1,5 @@
+
+
 using CleanArch.Application.Contracts.Email;
 using CleanArch.Application.Contracts.Logging;
 using CleanArch.Application.Models.Email;
@@ -10,7 +12,7 @@ namespace CleanArch.Infrastructure;
 
 public static class InfrastructureServiceRegistration
 {
-    public static IServiceCollection ConfigureInfrastrucctureServices
+    public static IServiceCollection AddInfrastrucctureServices
         (this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
